@@ -1,6 +1,7 @@
 -f https://download.pytorch.org/whl/torch_stable.html
 Flask
 opencv-python-headless==4.8.1.78
+opencv-contrib-python==4.8.1.78
 torch==2.2.0+cpu
 torchvision==0.17.0+cpu
 flask-cors
