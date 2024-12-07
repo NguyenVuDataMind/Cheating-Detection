@@ -1,7 +1,7 @@
 -f https://download.pytorch.org/whl/torch_stable.html
 Flask
 torch==2.3.1+cpu
-torchvision==0.18.0+cpu
+torchvision==0.17.0+cpu
 flask-cors
 ultralytics
 gunicorn
