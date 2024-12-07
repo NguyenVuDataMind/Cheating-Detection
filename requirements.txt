@@ -1,6 +1,7 @@
 -f https://download.pytorch.org/whl/torch_stable.html
 Flask
 numpy<2
+opencv-python-headless==4.2.0.32
 torch==2.2.0+cpu
 flask-cors
 ultralytics==8.3.44
