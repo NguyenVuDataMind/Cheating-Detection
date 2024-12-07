@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify
 import torch
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 # Tải mô hình đã huấn luyện
 model = torch.load('best.pt')
