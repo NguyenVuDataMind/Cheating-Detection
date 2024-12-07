@@ -1,5 +1,5 @@
-Flask==2.1.1
+Flask
 torch==1.9.0+cu111
-flask-cors==3.1.1
+flask-cors
 ultralytics
-gunicorn==20.1.0  # Để chạy Flask app trên Heroku
+gunicorn
