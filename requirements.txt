@@ -5,3 +5,4 @@ torchvision==0.17.0+cpu
 flask-cors
 ultralytics==8.0.0
 gunicorn
+opencv-python-headless
