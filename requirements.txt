@@ -3,6 +3,5 @@ Flask
 torch==2.2.0+cpu
 torchvision==0.17.0+cpu
 flask-cors
-ultralytics==8.0.0
+ultralytics==8.0.100
 gunicorn
-opencv-python-headless
