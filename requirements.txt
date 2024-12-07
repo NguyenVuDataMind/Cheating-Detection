@@ -4,6 +4,5 @@ torch==2.2.0+cpu
 torchvision==0.17.0+cpu
 flask-cors
 ultralytics==8.0.0
--r constraints.txt
 gunicorn
-opencv-python-headless
+opencv-python-headless==4.7.0.68
