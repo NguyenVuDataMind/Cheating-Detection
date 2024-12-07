@@ -1,2 +1,2 @@
-opencv-python==0  # Ngăn không cài opencv-python
+opencv-python==
 opencv-python-headless
