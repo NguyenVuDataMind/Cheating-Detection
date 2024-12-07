@@ -1,0 +1,16 @@
+*.pyc
+__pycache__/
+*.log
+*.md
+*.txt
+tests/
+data/
+*.onnx
+notebooks/
+*.ipynb
+*.zip
+*.tar.gz
+*.mp4
+*.png
+*.jpg
+*.jpeg
