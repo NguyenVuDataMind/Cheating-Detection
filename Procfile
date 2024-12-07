@@ -1,1 +1,1 @@
-web: export LD_LIBRARY_PATH=/app/libs && gunicorn server:app
+web: sh start.sh
