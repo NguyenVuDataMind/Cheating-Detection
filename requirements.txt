@@ -3,4 +3,4 @@ flask-cors
 onnxruntime
 numpy
 pillow
-ultralytics==8.0.0
+https://github.com/ultralytics/ultralytics/archive/refs/heads/main.zip#egg=ultralytics
