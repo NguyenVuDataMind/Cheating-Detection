@@ -11,3 +11,4 @@ matplotlib
 pyyaml
 tqdm
 torchvision==0.17.0+cpu
+psutil
