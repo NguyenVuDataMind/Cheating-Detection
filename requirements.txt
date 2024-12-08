@@ -3,4 +3,4 @@ flask-cors
 onnxruntime
 numpy
 pillow
-https://github.com/ultralytics/ultralytics/archive/refs/heads/main.zip#egg=ultralytics
+https://github.com/ultralytics/ultralytics/archive/refs/heads/main.zip#egg=ultralytics --no-deps
