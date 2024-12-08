@@ -1,8 +1,9 @@
 -f https://download.pytorch.org/whl/torch_stable.html
 flask
 flask-cors
+onnx
 onnxruntime
-numpy
+numpy<2.0
 pillow
 gunicorn
 torch==2.2.0+cpu
