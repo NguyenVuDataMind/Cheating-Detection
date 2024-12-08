@@ -1,1 +1,1 @@
-web: gunicorn server:app
+web: pip install --no-deps -r ultralytics-requirements.txt && gunicorn server:app
