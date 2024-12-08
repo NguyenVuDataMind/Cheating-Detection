@@ -9,3 +9,4 @@ torch==2.2.0+cpu
 opencv-python-headless
 matplotlib
 pyyaml
+tqdm
