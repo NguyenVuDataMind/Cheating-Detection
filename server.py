@@ -12,7 +12,7 @@ import gc
 
 app = Flask(__name__)
 
-cors = CORS(app, resources={r"/*": {"origins": "https://yumyum.social"}})
+cors = CORS(app)
 
 # Load the trained model
 model = YOLO('best.onnx')
@@ -106,13 +106,13 @@ def predict():
         y2 *= scale_y
         adjusted_boxes.append([float(x1), float(y1), float(x2), float(y2), float(conf), int(cls)])
 
-    # Encode the resized image as a base64 string
-    _, buffer = cv2.imencode('.png', resized_image)
-    image_base64 = base64.b64encode(buffer).decode('utf-8')
+    # Convert resized image to binary
+    _, buffer = cv2.imencode('.jpg', resized_image)
+    resized_image_binary = buffer.tobytes()
     del buffer
     
     # Apply Non-Maximum Suppression
-    iou_threshold = 0.5  # You can adjust this threshold
+    iou_threshold = 0.5
     nms_boxes = non_max_suppression(adjusted_boxes, iou_threshold)
     del adjusted_boxes
     
@@ -125,6 +125,7 @@ def predict():
         final_label = None
         final_conf = None
     del nms_boxes
+    
     # Create result_data with only the highest confidence box
     result_data = {
         'masv': user_id,
@@ -134,14 +135,13 @@ def predict():
         'labels': [final_label],
         'confidences': [final_conf],
         'orig_shape': results[0].orig_shape,
-        'image_base64': image_base64
+        'image_binary': resized_image_binary
     }
     
     # Check for existing documents with the same masv
     existing_document = collection.find_one({'masv': user_id})
 
     # Determine if the new document should be inserted
-    
     if existing_document:
         should_insert = False
         if 'gian lan' in existing_document['labels'] and 'gian lan' in result_data['labels']:
@@ -162,13 +162,14 @@ def predict():
         if should_insert:
             collection.insert_one(result_data)
 
-    del file                # 🟢
-    del image               # 🟢
-    del resized_image       # 🟢
-    del result_data         # 🟢
-    del results             # 🟢
-    del existing_document   # 🟢
-    del image_np            # 🟢
+    del file                    # 🟢
+    del image                   # 🟢
+    del resized_image           # 🟢
+    del result_data             # 🟢
+    del results                 # 🟢
+    del existing_document       # 🟢
+    del image_np                # 🟢
+    del resized_image_binary    # 🟢
     
     # Extract detection results for response
     detections = []
