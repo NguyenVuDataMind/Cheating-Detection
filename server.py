@@ -1,8 +1,7 @@
 from flask import Flask, request, jsonify
 from PIL import Image
+import os
 import io
-import json
-import base64
 import numpy as np
 from ultralytics import YOLO
 from pymongo import MongoClient
@@ -17,7 +16,8 @@ cors = CORS(app)
 # Load the trained model
 model = YOLO('best.onnx')
 
-client = MongoClient('mongodb+srv://MLadmin:admin1021@machinelearning.so3qxxp.mongodb.net/')
+MONGO_URI = os.environ['MONGODB']
+client = MongoClient(MONGO_URI)
 db = client['MACHINELEARNING']
 
 def read_image(file):
