@@ -12,7 +12,7 @@ import gc
 
 app = Flask(__name__)
 
-cors = CORS(app, resources={r"/*": {"origins": "https://yumyum.social"}})
+cors = CORS(app)
 
 # Load the trained model
 model = YOLO('best.onnx')
