@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
 from PIL import Image
 import io
-import os
 import json
 import base64
 import numpy as np
@@ -13,14 +12,12 @@ import gc
 
 app = Flask(__name__)
 
-web_url = os.environ['WEB'] # Web URL
-cors = CORS(app, resources={r"/*": {"origins": web_url}})
+cors = CORS(app, resources={r"/*": {"origins": "https://yumyum.social"}})
 
 # Load the trained model
 model = YOLO('best.onnx')
 
-MONGO_URI = os.environ['MONGODB']
-client = MongoClient(MONGO_URI)
+client = MongoClient('mongodb+srv://MLadmin:admin1021@machinelearning.so3qxxp.mongodb.net/')
 db = client['MACHINELEARNING']
 
 def read_image(file):
@@ -179,7 +176,7 @@ def predict():
     
     # Create the detection dictionary for the box with the highest confidence
     detection = {
-        "class_name": final_box[5],
+        "class_name": final_box[5],  # Assuming class names are integers
         "confidence": final_box[4],
         "x": final_box[0],
         "y": final_box[1],
