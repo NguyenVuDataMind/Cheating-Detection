@@ -7,9 +7,10 @@ numpy<2.0
 pillow
 gunicorn
 torch==2.2.0+cpu
+torchvision==0.17.0+cpu
 opencv-python-headless
 matplotlib
 pyyaml
 tqdm
-torchvision==0.17.0+cpu
 psutil
+pymongo
