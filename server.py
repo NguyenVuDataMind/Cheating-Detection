@@ -8,6 +8,7 @@ from ultralytics import YOLO
 from pymongo import MongoClient
 from flask_cors import CORS
 import cv2
+import gc
 
 app = Flask(__name__)
 
@@ -111,11 +112,13 @@ def predict():
     # Encode the resized image as a base64 string
     _, buffer = cv2.imencode('.png', resized_image)
     image_base64 = base64.b64encode(buffer).decode('utf-8')
-
+    del buffer
+    
     # Apply Non-Maximum Suppression
     iou_threshold = 0.5  # You can adjust this threshold
     nms_boxes = non_max_suppression(adjusted_boxes, iou_threshold)
-
+    del adjusted_boxes
+    
     if len(nms_boxes) > 0:
         final_box = nms_boxes[0]
         final_label = results[0].names[int(final_box[5])]
@@ -124,7 +127,8 @@ def predict():
         final_box = None
         final_label = None
         final_conf = None
-
+    del nms_boxes
+    
     # Create result_data with only the highest confidence box
     result_data = {
         'masv': user_id,
@@ -137,13 +141,6 @@ def predict():
         'image_base64': image_base64
     }
     
-    test_data={
-        'masv': user_id,
-        'date_time': date_time,
-        'boxes': [final_box],
-        'labels': [final_label],
-        'confidences': [final_conf],
-    }
     # Check for existing documents with the same masv
     existing_document = collection.find_one({'masv': user_id})
 
@@ -183,6 +180,16 @@ def predict():
     }
 
     detections = [detection]
+    
+    del file                # 🟢
+    del image               # 🟢
+    del resized_image       # 🟢
+    del result_data         # 🟢
+    del results             # 🟢
+    del existing_document   # 🟢
+    del image_np            # 🟢
+    
+    gc.collect()  # Dọn rác
     
     return jsonify({"detections": detections})
 
