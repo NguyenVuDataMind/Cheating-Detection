@@ -1,4 +1,5 @@
 -f https://download.pytorch.org/whl/torch_stable.html
+os
 flask
 flask-cors
 onnx
