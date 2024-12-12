@@ -12,11 +12,11 @@ import gc
 
 app = Flask(__name__)
 
-cors = CORS(app, resources={r"/*": {"origins": "https://yumyum.social"}})
+cors = CORS(app)
 
 
 # Load the trained model
-model = YOLO('best.pt')
+model = YOLO('best.onnx')
 
 # Initialize MongoDB client
 client = MongoClient('mongodb+srv://MLadmin:admin1021@machinelearning.so3qxxp.mongodb.net/')
