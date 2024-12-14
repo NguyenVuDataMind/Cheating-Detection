@@ -1,8 +1,6 @@
 -f https://download.pytorch.org/whl/torch_stable.html
 flask
 flask-cors
-onnx
-onnxruntime
 numpy<2.0
 pillow
 gunicorn
