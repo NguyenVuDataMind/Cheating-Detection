@@ -14,7 +14,7 @@ app = Flask(__name__)
 cors = CORS(app)
 
 # Load the trained model
-model = YOLO('best.pt')
+model = YOLO('best.onnx')
 
 MONGO_URI = os.environ['MONGODB']
 client = MongoClient(MONGO_URI)
