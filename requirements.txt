@@ -2,6 +2,8 @@
 flask
 flask-cors
 numpy<2.0
+onnx
+onnxruntime
 pillow
 gunicorn
 torch==2.2.0+cpu
