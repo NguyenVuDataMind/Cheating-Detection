@@ -19,3 +19,4 @@
 - Lưu ý: web dyno của heroky sẽ có thể không free, bản free không chạy liên tục 24/7 được.
 - Các private key trong server.py sẽ cần khai báo riêng trên heroku.
 - Cần tạo trình duyệt riêng để gửi request lên server trên heroku để xử lí và phát hiện gian lận.
+- *Đặc biệt quan trọng: Không nên sử dụng model .pt, vì thời gian xử lí sẽ rất lâu. Sử dụng model .onnx sẽ nhanh hơn nhiều, vì được tối ưu cho việc suy luận.*
