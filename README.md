@@ -34,8 +34,8 @@ This project focuses on detecting cheating behaviors in an e-learning environmen
 - **Dataset Files**: [Google Drive Link](https://drive.google.com/drive/folders/1yMAa2kS8hEY1qugx7as4dGPG1D0FjM3F?fbclid=IwY2xjawIerl1leHRuA2FlbQIxMAABHW9L6700nEN5Esi9TODyXAvM-luxcjDGrG4KSsl9ISXdu87Te4eZRYcNVQ_aem_jwrchz3NcqmGykHgcTlAaw)
 
 ## Images
-You can find the project-related images in the following folder:  
-[Google Drive Image Folder](https://drive.google.com/drive/folders/1RSOgevhpn1iNtQ5LAaakGK0eDad1Lty5)
+![image alt](https://github.com/NguyenVuDataMind/Cheating-Detection/blob/0309f27b967ed57597deced2c155e535571a27cc/gian%20l%E1%BA%ADn.png)
+![image alt]()
 
 
 
