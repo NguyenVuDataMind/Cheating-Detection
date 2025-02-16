@@ -35,7 +35,7 @@ This project focuses on detecting cheating behaviors in an e-learning environmen
 
 ## Images
 ![image alt](https://github.com/NguyenVuDataMind/Cheating-Detection/blob/0309f27b967ed57597deced2c155e535571a27cc/gian%20l%E1%BA%ADn.png)
-![image alt]()
+![image alt](https://github.com/NguyenVuDataMind/Cheating-Detection/blob/df2e974f2090722b140ae12c51e6e1010d024a05/gian%20l%E1%BA%ADn%201.png)
 
 
 
