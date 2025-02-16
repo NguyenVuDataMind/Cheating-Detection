@@ -1,22 +1,51 @@
-# Project Phát hiện gian lận trên hệ thống Elearning
-> Group 01
-> Lớp 48K29.2, trường đại học kinh tế Đà Nẵng.
-- Sử dụng heroku để xử lí ảnh và mongodb để lưu kết quả.
-- Huấn luyện bằng model YOLO 11 của ultralytics:
-> Trích xuất tính năng nâng cao: YOLO11 sử dụng kiến trúc xương sống và cổ được cải tiến, giúp tăng cường khả năng trích xuất tính năng để phát hiện đối tượng chính xác hơn và thực hiện tác vụ phức tạp.
-> 
-> Được tối ưu hóa cho hiệu quả và tốc độ: YOLO11 giới thiệu các thiết kế kiến trúc tinh tế và quy trình đào tạo được tối ưu hóa, mang lại tốc độ xử lý nhanh hơn và duy trì sự cân bằng tối ưu giữa độ chính xác và hiệu suất.
-> 
-> Độ chính xác cao hơn với ít tham số hơn: Với những tiến bộ trong thiết kế mô hình, YOLO11m đạt được Độ chính xác trung bình (mAP) cao hơn trên tập dữ liệu COCO trong khi sử dụng ít hơn 22% tham số so với YOLOv8m , giúp tính toán hiệu quả mà không ảnh hưởng đến độ chính xác.
-> 
-> Khả năng thích ứng trong nhiều môi trường: YOLO11 có thể được triển khai liền mạch trên nhiều môi trường khác nhau, bao gồm các thiết bị biên, nền tảng đám mây và hệ thống hỗ trợ NVIDIA GPU đảm bảo tính linh hoạt tối đa.
-> 
-> Phạm vi rộng các tác vụ được hỗ trợ: Cho dù đó là phát hiện đối tượng, phân đoạn thể hiện, phân loại hình ảnh, ước tính tư thế hay phát hiện đối tượng theo hướng (OBB), YOLO11 được thiết kế để giải quyết nhiều thách thức khác nhau về thị giác máy tính.
-- Không vượt giới hạn slug size của heroku (<500mb)
-> Nếu để ultralytics ngay trong requirements.txt thì khả năng lỗi rất cao!
-- Nhưng memory của heroku có thể bị quá tải (>1gb).
-> Nên sử dụng web dyno performance (yêu cầu có lịch sử thanh toán trên heroku trước đó).
-- Lưu ý: web dyno của heroky sẽ có thể không free, bản free không chạy liên tục 24/7 được.
-- Các private key trong server.py sẽ cần khai báo riêng trên heroku.
-- Cần tạo trình duyệt riêng để gửi request lên server trên heroku để xử lí và phát hiện gian lận
-- *Đặc biệt quan trọng: Không nên sử dụng model .pt, vì thời gian xử lí sẽ rất lâu. Sử dụng model .onnx sẽ nhanh hơn nhiều, vì được tối ưu cho việc suy luận*
+Cheating Detection on E-learning System
+
+Group 01
+
+Class 48K29.2, University of Economics, Da Nang
+
+Project Overview
+
+This project focuses on detecting cheating behaviors in an e-learning environment using YOLO and Heroku for image processing, with MongoDB to store results.
+
+Technologies Used
+
+Heroku: Handles image processing.
+
+MongoDB: Stores detection results.
+
+YOLO 11 (Ultralytics) for model training:
+
+Advanced feature extraction: YOLO11 utilizes an improved backbone and neck architecture to enhance object detection accuracy and handle complex tasks.
+
+Optimized for efficiency and speed: YOLO11 introduces refined architectural designs and optimized training processes, offering faster inference speeds while maintaining an optimal balance between accuracy and performance.
+
+Higher accuracy with fewer parameters: YOLO11m achieves a higher mean Average Precision (mAP) on the COCO dataset while using 22% fewer parameters than YOLOv8m, making computations more efficient without sacrificing accuracy.
+
+Adaptability across environments: YOLO11 can be seamlessly deployed across various environments, including edge devices, cloud platforms, and NVIDIA GPU-supported systems, ensuring maximum flexibility.
+
+Wide range of supported tasks: YOLO11 is designed for multiple computer vision challenges, including object detection, instance segmentation, image classification, pose estimation, and oriented object detection (OBB).
+
+Deployment Considerations
+
+Heroku slug size limit (<500MB)
+
+Installing ultralytics directly in requirements.txt may cause errors.
+
+Heroku memory constraints (>1GB)
+
+Requires a web dyno performance tier (must have a billing history on Heroku).
+
+Note: Heroku web dynos are not always free; free plans do not run 24/7.
+
+Private keys in server.py should be configured separately on Heroku.
+
+Custom browser instance is required to send requests to the Heroku server for processing and fraud detection.
+
+Important: Do not use .pt models, as inference time will be too long. Instead, use .onnx models for faster performance due to optimized inference capabilities.
+
+Resources
+
+Project Slide Deck: View on Canva
+
+Dataset Files: Google Drive Link
